@@ -4,6 +4,7 @@ A respository for tracking my journey of learning react
 ## List of Contents :
 - [Tic-Tac-Toe](#tic-tac-toe)
 - [TailWindCSS](#tailwindcss)
+- [learning](#learning)
 ---
 
 ### Tic-Tac-Toe
@@ -14,3 +15,9 @@ A simple Tic-Tac-Toe game, designed by me. help take from [React](https://react.
 ---
 ### TailWindCSS
 Explore basic functionalitites and Setup in TailWindCSS. 
+
+---
+### learning
+This project include various web components like :
+- [Accordion](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/accordian) : Accordion components with a button to switch multiple selection and single selection optoins.
+
