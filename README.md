@@ -20,4 +20,4 @@ Explore basic functionalitites and Setup in TailWindCSS.
 ### learning
 This project include various web components like :
 - [Accordion](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/accordian) : Accordion components with a button to switch multiple selection and single selection optoins.
-
+- [Random Color Generator](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/random_color) : Random color generator, able to show color codes in both hex and RGB format
