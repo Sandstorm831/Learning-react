@@ -28,3 +28,5 @@ This project include various web components like :
 - [Star Rating](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/star_rating) : Star rating feature is implemented, which glows on hovering, and gets fixed on clicking.
   ![StarRating](https://github.com/user-attachments/assets/d186dd6f-c151-4379-be38-d8ee60800a26)
 
+- [Image Slider](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/image_slider) : Image slider web component, fetching images from an external API
+  ![ImageSlider](https://github.com/user-attachments/assets/980b9787-57b6-401f-85fd-0e9803424480)
