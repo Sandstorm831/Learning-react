@@ -30,3 +30,6 @@ This project include various web components like :
 
 - [Image Slider](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/image_slider) : Image slider web component, fetching images from an external API
   ![ImageSlider](https://github.com/user-attachments/assets/980b9787-57b6-401f-85fd-0e9803424480)
+
+- [Load More Data](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/load-more-data) : Load more data functionality is implemented commonly seen on product-based websites to load more data components.
+  ![Load_More_Data](https://github.com/user-attachments/assets/cf98560e-14e8-45de-a4c7-b2da87baf8cd)
