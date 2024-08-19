@@ -36,3 +36,6 @@ This project include various web components like :
 
 - [Tree View](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/tree-view) : implementation of tree-structure webpage linkage functionality
   ![Tree-view](https://github.com/user-attachments/assets/e9a003c7-e120-45dd-9dca-fbb1d61b2e07)
+
+- [QR Code Generator](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/qrcode) : This is an implementation of QR-Code generator made using [react-qr-code](https://www.npmjs.com/package/react-qr-code)
+  ![QR_Code_generator](https://github.com/user-attachments/assets/ef2ffb3b-f47e-44a9-9348-1556bcbe704f)
