@@ -42,3 +42,6 @@ This project include various web components like :
 
 - [Light Dark Mode](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/light_dark_mode) : Implemented light dark mode switching functionality with custom react-hook
   ![Dark_light_mode](https://github.com/user-attachments/assets/a2e3c746-0106-480e-a7ca-cfbcecad56f4)
+
+- [Custom Scroll Indicator](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/custom_scroll_indicator) : Custom scroll indicator, I thought it would be hard, but turned to be simple mathematics and a hook
+  
