@@ -44,4 +44,5 @@ This project include various web components like :
   ![Dark_light_mode](https://github.com/user-attachments/assets/a2e3c746-0106-480e-a7ca-cfbcecad56f4)
 
 - [Custom Scroll Indicator](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/custom_scroll_indicator) : Custom scroll indicator, I thought it would be hard, but turned to be simple mathematics and a hook
-  
+  ![custom_scroll_indicator](https://github.com/user-attachments/assets/ad67257f-5190-46f2-9e3a-db98d3dcc9ef)
+
