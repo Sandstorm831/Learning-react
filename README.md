@@ -46,3 +46,5 @@ This project include various web components like :
 - [Custom Scroll Indicator](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/custom_scroll_indicator) : Custom scroll indicator, I thought it would be hard, but turned to be simple mathematics and a hook
   ![custom_scroll_indicator](https://github.com/user-attachments/assets/ad67257f-5190-46f2-9e3a-db98d3dcc9ef)
 
+- [Github profile finder](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/github_profile_finder) : Made a github profile finder, with simple imformation display
+  ![Github_profile_finder](https://github.com/user-attachments/assets/7e4df662-fc75-4ea6-a8c7-2b4cf1302665)
