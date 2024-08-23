@@ -48,3 +48,6 @@ This project include various web components like :
 
 - [Github profile finder](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/github_profile_finder) : Made a github profile finder, with simple imformation display
   ![Github_profile_finder](https://github.com/user-attachments/assets/7e4df662-fc75-4ea6-a8c7-2b4cf1302665)
+
+- [Custom Tabs](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/custom-tabs) : Implemented a custom tabs web-component, commonly it is used with links to specific pages which is just a simple add-on over "to" parameter.
+  ![CustomTabs](https://github.com/user-attachments/assets/8784a819-76d8-491a-b23e-94d48543591d)
