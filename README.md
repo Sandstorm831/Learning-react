@@ -51,3 +51,6 @@ This project include various web components like :
 
 - [Custom Tabs](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/custom-tabs) : Implemented a custom tabs web-component, commonly it is used with links to specific pages which is just a simple add-on over "to" parameter.
   ![CustomTabs](https://github.com/user-attachments/assets/8784a819-76d8-491a-b23e-94d48543591d)
+
+- [Custom Modal Popup](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/custom_modal_popup) : Custom modal popups web component, used to appear for changing cookie settings, alerting, logging in and others
+  ![Modal_Popup](https://github.com/user-attachments/assets/cb130bf4-b49f-42c4-a6a9-323d9e387733)
