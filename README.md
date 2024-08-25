@@ -54,3 +54,6 @@ This project include various web components like :
 
 - [Custom Modal Popup](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/custom_modal_popup) : Custom modal popups web component, used to appear for changing cookie settings, alerting, logging in and others
   ![Modal_Popup](https://github.com/user-attachments/assets/cb130bf4-b49f-42c4-a6a9-323d9e387733)
+
+- [Search Auto-Complete](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/search-autocomplete) : Completed a search auto-complete functionality, where search is based upon a array of names
+  ![SearchAutocomplete](https://github.com/user-attachments/assets/05f6e1be-aaaa-4340-b518-6a8f86a49b86)
