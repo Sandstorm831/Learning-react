@@ -57,3 +57,6 @@ This project include various web components like :
 
 - [Search Auto-Complete](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/search-autocomplete) : Completed a search auto-complete functionality, where search is based upon a array of names
   ![SearchAutocomplete](https://github.com/user-attachments/assets/05f6e1be-aaaa-4340-b518-6a8f86a49b86)
+
+- [Feature Flag](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/feature-flag) : Made a easy to choose feature flag component, for those occasions when you have to display a component according to your choice for some time
+  ![Feature_Flag](https://github.com/user-attachments/assets/f2a54532-890d-4c7c-8192-db3b7d4b9443)
