@@ -60,3 +60,6 @@ This project include various web components like :
 
 - [Feature Flag](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/feature-flag) : Made a easy to choose feature flag component, for those occasions when you have to display a component according to your choice for some time
   ![Feature_Flag](https://github.com/user-attachments/assets/f2a54532-890d-4c7c-8192-db3b7d4b9443)
+
+- [UseFetch Custom Hook](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/useFetch) : This is a custom hook, used to fetch data from any given API and return data, loading and error state
+  ![UseFetchHook](https://github.com/user-attachments/assets/f710dcf0-d51c-4080-9a87-22770391b888)
