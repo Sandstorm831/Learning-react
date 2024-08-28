@@ -63,3 +63,6 @@ This project include various web components like :
 
 - [UseFetch Custom Hook](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/useFetch) : This is a custom hook, used to fetch data from any given API and return data, loading and error state
   ![UseFetchHook](https://github.com/user-attachments/assets/f710dcf0-d51c-4080-9a87-22770391b888)
+
+- [ClickOutside](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/clickOutside) : Made the click outside functional web component, which closes the component automatically on clicking outside
+  ![Click_Outside](https://github.com/user-attachments/assets/cab824ce-ea21-43bf-affc-b7b94c17fedc)
