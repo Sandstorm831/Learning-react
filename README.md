@@ -66,3 +66,6 @@ This project include various web components like :
 
 - [ClickOutside](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/clickOutside) : Made the click outside functional web component, which closes the component automatically on clicking outside
   ![Click_Outside](https://github.com/user-attachments/assets/cab824ce-ea21-43bf-affc-b7b94c17fedc)
+
+- [Window Resize hook](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/useWindowResize) : Made a hook that gives the window size, height and width
+  ![WindowResizeHook](https://github.com/user-attachments/assets/787b82d2-8e9f-409b-aca7-3763489790f4)
