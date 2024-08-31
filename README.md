@@ -72,3 +72,6 @@ This project include various web components like :
 
 - [Top-Bottom Scroller](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/ScrollTopBottom) : Web component that let you scroll to top or bottom of page with a click of a button, it was fun making, easy but fun
   ![ScrollBottomTop](https://github.com/user-attachments/assets/f2dd5c7f-5dcc-4aaf-9d7d-0e4ba7213f13)
+
+- [Sectoin Scroller](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/ScrollSection) : final web component, section scroller, name justifies its purpose, but all of it was fun.
+  ![ScrollToSection](https://github.com/user-attachments/assets/06f16578-d91a-48b5-bc0f-e79c793cd578)
