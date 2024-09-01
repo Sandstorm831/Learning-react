@@ -5,12 +5,13 @@ A respository for tracking my journey of learning react
 - [Tic-Tac-Toe](#tic-tac-toe)
 - [TailWindCSS](#tailwindcss)
 - [learning](#learning)
+- [Weather-App](#weather-app)
 ---
 
 ### Tic-Tac-Toe
 ![Tic-Tac-Toe](https://github.com/user-attachments/assets/e9ff9c54-73e5-4770-ba68-6c2bd8c29893)
 
-A simple Tic-Tac-Toe game, designed by me. help take from [React](https://react.dev). Apart from basic Tic-Tac-Toe game, in it you can go to your previous moves also and make changes to your moves. Hope it helps.
+A simple Tic-Tac-Toe game, designed by me. help taken from [React](https://react.dev). Apart from basic Tic-Tac-Toe game, in it you can go to your previous moves also and make changes to your moves. Enjoy.
 
 ---
 ### TailWindCSS
@@ -75,3 +76,7 @@ This project include various web components like :
 
 - [Sectoin Scroller](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/ScrollSection) : final web component, section scroller, name justifies its purpose, but all of it was fun.
   ![ScrollToSection](https://github.com/user-attachments/assets/06f16578-d91a-48b5-bc0f-e79c793cd578)
+
+---
+### Weather-App
+![Weather-App](https://github.com/Sandstorm831/Learning-react/tree/main/weather-app) is a simple web app which gives you weather of any city in the world, and and place if you have co-ordinates of that place. Currently in development for making it's functionality works perfectly.
