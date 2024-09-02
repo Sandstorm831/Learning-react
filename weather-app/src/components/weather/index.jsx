@@ -12,7 +12,7 @@ export default function Weather(){
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const limit=3
-    const API_Key = '40722dbfb21399c08dcf01d9e7bc015c'
+    const API_Key = "";//Create your own API Key 
     let submitDebouncer;
     let submitAborter = null;
 
@@ -22,10 +22,9 @@ export default function Weather(){
 
     async function fetcher(url){
         if(submitAborter){
-            console.log(submitAborter)
+            console.log(submitAborter);
             submitAborter.abort();
-            submitAborter = null;
-            console.log(submitAborter)
+            console.log(submitAborter);
         }
         submitAborter = new AbortController();
         const runSignal = submitAborter.signal;
@@ -41,11 +40,7 @@ export default function Weather(){
             console.log(data);
             // console.timeEnd("ended")
         } catch(e){
-            if(e.name === 'AbortError'){
-                console.log("hell, yeah !!!")
-                setLoading(false);
-                setError(e);
-            }
+            console.log(e.name)
         }
     }
 
@@ -59,7 +54,7 @@ export default function Weather(){
             fetcher(url)
             sleep(50)
             fetcher(url)
-        }, 1020)
+        }, 200)
     }
 
     // function handleSubmit(){
