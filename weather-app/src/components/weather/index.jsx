@@ -12,7 +12,7 @@ export default function Weather(){
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const limit=3
-    const API_Key = "";//Create your own API Key 
+    const API_Key = '40722dbfb21399c08dcf01d9e7bc015c'
     let submitDebouncer;
     let submitAborter = null;
 
@@ -20,28 +20,45 @@ export default function Weather(){
         return new Promise(resolve => setTimeout(resolve, ms))
     }
 
-    async function fetcher(url){
-        if(submitAborter){
-            console.log(submitAborter);
-            submitAborter.abort();
-            console.log(submitAborter);
-        }
+    async function fetcher(){
+        if(submitAborter) submitAborter.abort();
+
         submitAborter = new AbortController();
-        const runSignal = submitAborter.signal;
-    
-        try{
-            // console.time("started")
-            const response = await fetch(url, {runSignal});
-            // console.timeEnd("started")
-            // console.time("ended")
-            const data = await response.json();
-            submitAborter = null;
-            setDisplayData(data);
-            console.log(data);
-            // console.timeEnd("ended")
-        } catch(e){
-            console.log(e.name)
-        }
+        const signal = submitAborter.signal;
+
+        fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_Key}`, {signal})
+        .then((response) => {
+
+            if(response.ok) return response.json();
+            else throw Error("Response is not OK");
+        })
+        .then((dataCity) => {
+            if(dataCity.length > 0){
+                const lat = dataCity[0].lat;
+                const lon = dataCity[0].lon;
+                const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_Key}`;
+                return fetch(url, {signal});
+            }
+            else{
+                setLoading(false);
+                setError(Error("City not found! Please check spelling of your city, and try again!"));
+                submitAborter = null;
+                throw(Error("City not found! Please check spelling of your city, and try again!"));
+            }
+        })
+        .then((response) => {
+            if(response.ok) return response.json();
+            else throw Error("Second API response not OK")
+        })
+        .then((data) => {
+            console.log(data)
+            console.log("Finally, last call back hell")
+        })
+        .catch((error) => {
+            console.log(error.message);
+            setError(error);
+            setLoading(false);
+        })
     }
 
     function handleSubmit(){
@@ -49,12 +66,11 @@ export default function Weather(){
             clearTimeout(submitDebouncer);
         }
         setLoading(true)
-        submitDebouncer = setTimeout(() => {
-            const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_Key}`;
-            fetcher(url)
-            sleep(50)
-            fetcher(url)
-        }, 200)
+        submitDebouncer = setTimeout(async () => {
+            fetcher()
+            await sleep(20)
+            fetcher()
+        }, 250)
     }
 
     // function handleSubmit(){
@@ -129,13 +145,13 @@ export default function Weather(){
     //     }, 300);
 
     //     return () => clearTimeout(CityName);
-        
+
     // }, [city])
 
 
     useEffect(() => {
         setSelected(false)                          // To specify that new input is given, city is not finalized
-        const controller = new AbortController();   // Used to abort the fetch request 
+        const controller = new AbortController();   // Used to abort the fetch request
         const cityName = setTimeout(async () => {   // Debouncer, if input is typed in speed, only final input to fetch (300ms), nothing else
             setSearchData([])
             const signal = controller.signal;
@@ -167,7 +183,7 @@ export default function Weather(){
     }, [city])
 
     return <div>
-        <Search city={city} setCity={setCity} handleSubmit={handleSubmit}/>
+        <Search city={city} setCity={setCity} handleSubmit={() => handleSubmit()}/>
         <CityList searchData={searchData} setSearchData={setSearchData} setCity={setCity} setSelected={setSelected}/>
     </div>
 }
