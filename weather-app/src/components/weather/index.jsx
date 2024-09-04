@@ -1,6 +1,6 @@
 import Search from '../search'
 import '../output.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import CityList from '../city_list';
 
 
@@ -13,6 +13,7 @@ export default function Weather(){
     const [error, setError] = useState(null);
     const limit=3
     const API_Key = '40722dbfb21399c08dcf01d9e7bc015c'
+    const searchAndCityListRef = useRef(null);
     let submitDebouncer;
     let submitAborter = null;
 
@@ -182,8 +183,42 @@ export default function Weather(){
 
     }, [city])
 
-    return <div>
-        <Search city={city} setCity={setCity} handleSubmit={() => handleSubmit()}/>
-        <CityList searchData={searchData} setSearchData={setSearchData} setCity={setCity} setSelected={setSelected}/>
+    function ClickOutsideRef(Ref){
+        useEffect(() => {
+            function handleClickOutside(event){
+                if (searchAndCityListRef.current && !searchAndCityListRef.current.contains(event.target) ){
+                    console.log("clicked outside the search and city list bar, therefore close it")
+                }
+                else if(searchAndCityListRef.current || searchAndCityListRef.current.contains(event.target)){
+                    console.log("Clicked inside")
+                }
+            }
+            document.addEventListener('mousedown', handleClickOutside)
+            return () => {
+                document.removeEventListener('mousedown', handleClickOutside);
+            };
+        }, [searchAndCityListRef]);
+    }
+
+    useEffect(() => {
+        function handleClickOutside(event){
+            if (searchAndCityListRef.current && !searchAndCityListRef.current.contains(event.target) ){
+                console.log("clicked outside the search and city list bar, therefore close it")
+            }
+            else if(searchAndCityListRef.current || searchAndCityListRef.current.contains(event.target)){
+                console.log("Clicked inside")
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside)
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [searchAndCityListRef]);
+
+    return <div className='bg-blue-200'>
+        <div ref={searchAndCityListRef} className='bg-amber-200'>
+            <Search city={city} setCity={setCity} handleSubmit={() => handleSubmit()} />
+            <CityList searchData={searchData} setSearchData={setSearchData} setCity={setCity} setSelected={setSelected}/>
+        </div>
     </div>
 }
