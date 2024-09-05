@@ -2,7 +2,7 @@ import '../output.css'
 
 export default function Search({city, setCity, handleSubmit}){
     return <div>
-        <input 
+        <input
         type='text'
         name="city_name"
         value={city}
