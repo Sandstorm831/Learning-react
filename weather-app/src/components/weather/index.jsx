@@ -3,7 +3,8 @@ import '../output.css'
 import { useContext, useEffect, useRef, useState } from 'react'
 import CityList from '../city_list';
 import OutsideInsideClicker from '../outside_clicker';
-import { Usercontext } from '../outside_clicker';
+import 'weather-react-icons/lib/css/weather-icons.css';
+import { WeatherIcon } from 'weather-react-icons';
 
 export default function Weather(){
     const [displayData, setDisplayData] = useState(null)
@@ -13,7 +14,7 @@ export default function Weather(){
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const limit=3
-    const API_Key = 'Enter Your Own key from openweathermap'
+    const API_Key = 'Use Your Own key from openweathermap'
     let submitDebouncer;
     let submitAborter = null;
 
@@ -27,6 +28,7 @@ export default function Weather(){
         submitAborter = new AbortController();
         const signal = submitAborter.signal;
 
+        setLoading(true)
         fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_Key}`, {signal})
         .then((response) => {
 
@@ -53,7 +55,7 @@ export default function Weather(){
         })
         .then((data) => {
             console.log(data)
-            console.log("Finally, last call back hell")
+            setDisplayData(data)
         })
         .catch((error) => {
             console.log(error.message);
@@ -68,8 +70,6 @@ export default function Weather(){
         }
         setLoading(true)
         submitDebouncer = setTimeout(async () => {
-            fetcher()
-            await sleep(20)
             fetcher()
         }, 250)
     }
@@ -112,5 +112,11 @@ export default function Weather(){
             <Search city={city} setCity={setCity} handleSubmit={() => handleSubmit()} />
             <CityList searchData={searchData} setSearchData={setSearchData} setCity={setCity} setSelected={setSelected}/>
         </OutsideInsideClicker>
+        {
+            displayData?displayData.weather[0].icon[2] == 'n'?
+            <WeatherIcon iconId={displayData.weather[0].id} name="owm" night />:
+            <WeatherIcon iconId={displayData.weather[0].id} name="owm" night />:
+            null
+        }
     </div>
 }
