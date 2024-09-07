@@ -1,22 +1,27 @@
 import Search from '../search'
 import '../output.css'
-import { useContext, useEffect, useRef, useState } from 'react'
+import {  useEffect, useState } from 'react'
 import CityList from '../city_list';
 import OutsideInsideClicker from '../outside_clicker';
 import 'weather-react-icons/lib/css/weather-icons.css';
 import { WeatherIcon } from 'weather-react-icons';
 
 export default function Weather(){
-    const [displayData, setDisplayData] = useState(null)
+    const [loadingText, setLoadingText] = useState('Loading, please wait')
+    const [displayData, setDisplayData] = useState(null);
     const [city, setCity] = useState('Bengaluru');
-    const [selected, setSelected] = useState(false)
-    const [searchData, setSearchData] = useState([])
+    const [location, setLocation] = useState({name: 'Bengaluru', state: 'karnataka', country: 'IN'});
+    const [selected, setSelected] = useState(false);
+    const [searchData, setSearchData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [initialFetch, setInitialFetch] = useState(false);
     const limit=3
-    const API_Key = 'Use Your Own key from openweathermap'
+    let timer;
+    const API_Key = 'Make your own api key from openweathermap.org'
     let submitDebouncer;
     let submitAborter = null;
+
 
     function sleep(ms){
         return new Promise(resolve => setTimeout(resolve, ms))
@@ -29,6 +34,7 @@ export default function Weather(){
         const signal = submitAborter.signal;
 
         setLoading(true)
+        startProcesses();
         fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_Key}`, {signal})
         .then((response) => {
 
@@ -39,13 +45,15 @@ export default function Weather(){
             if(dataCity.length > 0){
                 const lat = dataCity[0].lat;
                 const lon = dataCity[0].lon;
+                setLocation(dataCity[0])
                 const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_Key}`;
                 return fetch(url, {signal});
             }
             else{
                 setLoading(false);
-                setError(Error("City not found! Please check spelling of your city, and try again!"));
+                endProcesses();
                 submitAborter = null;
+                setError(Error("City not found! Please check spelling of your city, and try again!"));
                 throw(Error("City not found! Please check spelling of your city, and try again!"));
             }
         })
@@ -54,24 +62,41 @@ export default function Weather(){
             else throw Error("Second API response not OK")
         })
         .then((data) => {
-            console.log(data)
+            setLoading(false)
+            endProcesses();
             setDisplayData(data)
         })
         .catch((error) => {
-            console.log(error.message);
+            console.log("Some error occured" + error.message);
             setError(error);
             setLoading(false);
+            endProcesses();
         })
     }
 
     function handleSubmit(){
         if(submitDebouncer){
             clearTimeout(submitDebouncer);
+            setLoading(false)
+            console.log("bless line 80")
         }
         setLoading(true)
         submitDebouncer = setTimeout(async () => {
             fetcher()
         }, 250)
+    }
+
+    function startProcesses(){
+        const textArray = ['Loading, please wait', 'Loading, please wait .', 'Loading, please wait ..', 'Loading, please wait ...'];
+        let i = -1;
+        timer = setInterval(() => {
+            i = (i+1)%4;
+            setLoadingText(textArray[i]);
+            console.log("I am still running and loading");
+        }, 750);
+    }
+    function endProcesses(){
+        clearInterval(timer)
     }
 
     useEffect(() => {
@@ -85,6 +110,7 @@ export default function Weather(){
                     const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${limit}&appid=${API_Key}`, { signal });
                     const data = await response.json();
                     setSearchData(data);
+                    console.log(data)
                 } catch(e){
                     if (e.name === 'AbortError'){
                         setSearchData([])
@@ -107,16 +133,61 @@ export default function Weather(){
 
     }, [city])
 
-    return <div className='bg-blue-200'>
+    if(!initialFetch) {
+        handleSubmit();
+        setInitialFetch(true);
+    }
+
+
+    return <div className='flex flex-col bg-blue-200 w-screen h-screen'>
+
         <OutsideInsideClicker>
             <Search city={city} setCity={setCity} handleSubmit={() => handleSubmit()} />
-            <CityList searchData={searchData} setSearchData={setSearchData} setCity={setCity} setSelected={setSelected}/>
+            <CityList searchData={searchData} setSearchData={setSearchData} setCity={setCity} setSelected={setSelected} setLocation={setLocation} />
         </OutsideInsideClicker>
         {
-            displayData?displayData.weather[0].icon[2] == 'n'?
-            <WeatherIcon iconId={displayData.weather[0].id} name="owm" night />:
-            <WeatherIcon iconId={displayData.weather[0].id} name="owm" night />:
-            null
+            loading?<div className='flex flex-col justify-center w-screen grow bg-red-300 '>
+                    <div className='self-center text-5xl'>
+                        {loadingText}
+                    </div>
+                </div>:
+            <div className='flex justify-center grow w-screen bg-white'>
+                <div className='justify-center w-4/6 bg-red-900'>
+                    {
+                        displayData?
+                        <div className='flex flex-col bg-blue-500 '>
+                            <div className='flex justify-center bg-red-100 h-48'>
+                                <div className=' w-min h-min self-center bg-pink-200'>
+                                    {
+                                        displayData?displayData.weather[0].icon[2] === 'n'?
+                                        <WeatherIcon iconId={displayData.weather[0].id} name="owm" className='text-9xl scale-100 ' night />:
+                                        <WeatherIcon iconId={displayData.weather[0].id} name="owm" className='text-9xl scale-100' />:
+                                        null
+                                    }
+                                </div>
+                            </div>
+                            <div className='flex justify-center font-bold'>{location.name}, {location.state}, {location.country}</div>
+                            <div className='flex justify-center'>Today | {new Date().toDateString()}</div>
+                            <div className='flex flex-col justify-center bg-black h-full w-full'>
+                                <div className='flex justify-center font-bold text-xl bg-white self-start w-full'>{displayData.weather[0].description} | Temp: {(displayData.main.temp - 273).toPrecision(3)} °C | Humidity : {displayData.main.humidity}%</div>
+                            </div>
+                            <div className='w-full h-48 bg-white flex'>
+                                <div className='flex justify-center w-full h-full bg-pink-700'>
+                                    <div className='flex text-xl bg-blue-800 h-min'>min temp. : {(displayData.main.temp_min - 273).toPrecision(3)} °C</div>
+                                </div>
+                                <div className='flex justify-center w-full h-full bg-fuchsia-700'>
+                                    <div className='flex justify-center text-xl bg-blue-800 h-min'>max temp : {(displayData.main.temp_max - 273).toPrecision(3)} °C</div>
+                                </div>
+                            </div>
+                        </div>:null
+                    }
+                </div>
+            </div>
         }
     </div>
 }
+//
+// {/* <li>{displayData.coord.lon}</li>
+// <li>{displayData.coord.lat}</li>
+// <li>{displayData.main.temp_max}</li>
+// <li>{displayData.main.feels_like}</li>
