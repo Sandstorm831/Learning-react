@@ -18,7 +18,7 @@ export default function Weather(){
     const [initialFetch, setInitialFetch] = useState(false);
     const limit=3
     let timer;
-    const API_Key = 'Make your own api key from openweathermap.org'
+    const API_Key = 'find your own key from openweathermap.org'
     let submitDebouncer;
     let submitAborter = null;
 
@@ -78,7 +78,6 @@ export default function Weather(){
         if(submitDebouncer){
             clearTimeout(submitDebouncer);
             setLoading(false)
-            console.log("bless line 80")
         }
         setLoading(true)
         submitDebouncer = setTimeout(async () => {
@@ -92,7 +91,6 @@ export default function Weather(){
         timer = setInterval(() => {
             i = (i+1)%4;
             setLoadingText(textArray[i]);
-            console.log("I am still running and loading");
         }, 750);
     }
     function endProcesses(){
@@ -110,7 +108,6 @@ export default function Weather(){
                     const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${limit}&appid=${API_Key}`, { signal });
                     const data = await response.json();
                     setSearchData(data);
-                    console.log(data)
                 } catch(e){
                     if (e.name === 'AbortError'){
                         setSearchData([])
@@ -152,15 +149,15 @@ export default function Weather(){
                     </div>
                 </div>:
             <div className='flex justify-center grow w-screen bg-white'>
-                <div className='justify-center w-4/6 bg-red-900'>
+                <div className='justify-center w-4/6 bg-red-800'>
                     {
                         displayData?
-                        <div className='flex flex-col bg-blue-500 '>
-                            <div className='flex justify-center bg-red-100 h-48'>
-                                <div className=' w-min h-min self-center bg-pink-200'>
+                        <div className='flex flex-col bg-white'>
+                            <div className='flex justify-center bg-red-200 h-48'>
+                                <div className=' w-min h-min self-center'>
                                     {
                                         displayData?displayData.weather[0].icon[2] === 'n'?
-                                        <WeatherIcon iconId={displayData.weather[0].id} name="owm" className='text-9xl scale-100 ' night />:
+                                        <WeatherIcon iconId={displayData.weather[0].id} name="owm" className='text-9xl scale-100' night />:
                                         <WeatherIcon iconId={displayData.weather[0].id} name="owm" className='text-9xl scale-100' />:
                                         null
                                     }
@@ -169,14 +166,13 @@ export default function Weather(){
                             <div className='flex justify-center font-bold'>{location.name}, {location.state}, {location.country}</div>
                             <div className='flex justify-center'>Today | {new Date().toDateString()}</div>
                             <div className='flex flex-col justify-center bg-black h-full w-full'>
-                                <div className='flex justify-center font-bold text-xl bg-white self-start w-full'>{displayData.weather[0].description} | Temp: {(displayData.main.temp - 273).toPrecision(3)} °C | Humidity : {displayData.main.humidity}%</div>
+                                <div className='flex justify-center font-bold text-xl bg-white self-start w-full'>Temp: {(displayData.main.temp - 273).toPrecision(3)} °C | min temp. : {(displayData.main.temp_min - 273).toPrecision(3)} °C | max temp : {(displayData.main.temp_max - 273).toPrecision(3)} °C</div>
+                                <div className='flex justify-center font-bold text-xl bg-white self-start w-full'>{displayData.weather[0].description} | Humidity : {displayData.main.humidity}% </div>
                             </div>
                             <div className='w-full h-48 bg-white flex'>
                                 <div className='flex justify-center w-full h-full bg-pink-700'>
-                                    <div className='flex text-xl bg-blue-800 h-min'>min temp. : {(displayData.main.temp_min - 273).toPrecision(3)} °C</div>
                                 </div>
                                 <div className='flex justify-center w-full h-full bg-fuchsia-700'>
-                                    <div className='flex justify-center text-xl bg-blue-800 h-min'>max temp : {(displayData.main.temp_max - 273).toPrecision(3)} °C</div>
                                 </div>
                             </div>
                         </div>:null
@@ -186,8 +182,3 @@ export default function Weather(){
         }
     </div>
 }
-//
-// {/* <li>{displayData.coord.lon}</li>
-// <li>{displayData.coord.lat}</li>
-// <li>{displayData.main.temp_max}</li>
-// <li>{displayData.main.feels_like}</li>
