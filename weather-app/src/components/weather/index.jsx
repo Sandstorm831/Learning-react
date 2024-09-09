@@ -18,7 +18,7 @@ export default function Weather(){
     const [initialFetch, setInitialFetch] = useState(false);
     const limit=3
     let timer;
-    const API_Key = 'find your own key from openweathermap.org'
+    const API_Key = 'Get key from openweathermap.org'
     let submitDebouncer;
     let submitAborter = null;
 
@@ -32,7 +32,7 @@ export default function Weather(){
 
         submitAborter = new AbortController();
         const signal = submitAborter.signal;
-
+    
         setLoading(true)
         startProcesses();
         fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_Key}`, {signal})
@@ -99,7 +99,7 @@ export default function Weather(){
 
     useEffect(() => {
         setSelected(false)                          // To specify that new input is given, city is not finalized
-        const controller = new AbortController();   // Used to abort the fetch request
+        const controller = new AbortController();   // Used to abort the fetch request 
         const cityName = setTimeout(async () => {   // Debouncer, if input is typed in speed, only final input to fetch (300ms), nothing else
             setSearchData([])
             const signal = controller.signal;
@@ -182,3 +182,8 @@ export default function Weather(){
         }
     </div>
 }
+// 
+// {/* <li>{displayData.coord.lon}</li>
+// <li>{displayData.coord.lat}</li>
+// <li>{displayData.main.temp_max}</li>
+// <li>{displayData.main.feels_like}</li>

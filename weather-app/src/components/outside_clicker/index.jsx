@@ -7,7 +7,7 @@ export const Usercontext = createContext(null)
 export default function OutsideInsideClicker(props){
 
     const inRef = useRef(null);
-    const [focussed, setFocussed] = useState(true)
+    const [focussed, setFocussed] = useState(false)
     useOutsideandInsideClick(inRef, focussed, setFocussed);
 
     function useOutsideandInsideClick(ref){
@@ -26,5 +26,5 @@ export default function OutsideInsideClicker(props){
             };
         }, [ref]);
     }
-    return <Usercontext.Provider value={focussed}> <h1>hello Mr.{focussed?"True":"False"}</h1><div ref={inRef}>{props.children}</div></Usercontext.Provider>
+    return <Usercontext.Provider value={focussed}><div ref={inRef}>{props.children}</div></Usercontext.Provider>
 }
