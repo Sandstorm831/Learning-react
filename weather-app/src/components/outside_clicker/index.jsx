@@ -1,8 +1,6 @@
 import { createContext, useEffect, useRef, useState } from "react";
 
-
 export const Usercontext = createContext(null)
-
 
 export default function OutsideInsideClicker(props){
 
