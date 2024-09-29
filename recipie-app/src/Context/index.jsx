@@ -8,6 +8,7 @@ export default function GlobalState({ children }) {
     const [loading, setLoading] = useState(false)
     const [recipeList, setRecipeList] = useState([])
     const [recipeDetailsData, setRecipeDetailsData] = useState(null)
+    const [favouritesList, setFavouritesList] = useState([])
 
     async function handleSubmit(event) {
         event.preventDefault()
@@ -30,8 +31,12 @@ export default function GlobalState({ children }) {
         }
     }
 
+    function handleAddtoFavourites(getCurrentItem){
+        console.log(getCurrentItem)
+    }
+
     console.log(loading, recipeList)
 
 
-    return <GlobalContext.Provider value={{ searchParam, setSearchParam, handleSubmit, loading, recipeList, recipeDetailsData, setRecipeDetailsData }}> {children} </GlobalContext.Provider>;
+    return <GlobalContext.Provider value={{ searchParam, setSearchParam, handleSubmit, loading, recipeList, recipeDetailsData, setRecipeDetailsData, handleAddtoFavourites }}> {children} </GlobalContext.Provider>;
 }
