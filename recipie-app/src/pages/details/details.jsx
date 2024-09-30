@@ -5,8 +5,7 @@ import '../../output.css'
 
 export default function Details(){
 
-    const {handleAddtoFavourites} = useContext(GlobalContext)
-    const {recipeDetailsData, setRecipeDetailsData} = useContext(GlobalContext)
+    const {recipeDetailsData, setRecipeDetailsData, handleAddtoFavourites, favouritesList} = useContext(GlobalContext)
     const {id} = useParams()
 
 
@@ -34,7 +33,9 @@ export default function Details(){
             <h3 className="font-bold text-2xl truncate text-black">{recipeDetailsData?.recipe?.title}</h3>
             <div>
                 <button onClick={() => handleAddtoFavourites(recipeDetailsData?.recipe)} className="p-3 px-8 rounded-lg text-sm uppercase font-medium tracking-wider mt-3 inline-block shadow-md bg-black text-white">
-                    Save as favourites
+                    {
+                        favouritesList && favouritesList.length > 0 && favouritesList.findIndex(item => item.id === recipeDetailsData?.recipe?.id) !== -1 ? "Remove from favourites" : "Add to favourites"
+                    }
                 </button>
             </div>
             <div>
