@@ -6,6 +6,7 @@ A respository for tracking my journey of learning react
 - [TailWindCSS](#tailwindcss)
 - [learning](#learning)
 - [Weather-App](#weather-app)
+- [Recipe-App](#recipe-app)
 ---
 
 ### Tic-Tac-Toe
@@ -83,4 +84,10 @@ This project include various web components like :
 ![weatherApp1](https://github.com/user-attachments/assets/a32c3176-d700-4e18-b6e1-dcdca643af0f)
 ![weatherApp2](https://github.com/user-attachments/assets/6e83b6bb-c7c9-4d03-a104-0e4c83ee6b61)
 
-
+---
+### Recipe-App
+![Recipe-App](https://github.com/Sandstorm831/Learning-react/tree/main/recipie-app) is a web app (but not very simple) which gives recipes of various kind of dishes. You just have to input one of the ingredients of the recipe, and if the recipe shows up, you can click on *recipe details* button, through which you will land on the recipe details page. From there you can read the recipe and if you want to save the recipe, you can click the *Add to Favourites* button to add the recipe to favourites page. To view your saved favourites recipe, you just have to click on *Favourites* button in top-right corner to go to the favourites page. To create various pages, I have used react-router-dom library, and also used *useContext* extensively as most of my states are set to have global context. Designed all 4 pages with TailWindCSS. Used *useParams* hook to access id of the recipes in the global context and also taken *useNavigation* to automatically take user back and forth from different pages on certain functionalities.
+![recipe_app1](https://github.com/user-attachments/assets/06492a74-71fe-4ed5-ba0d-3799638ba42c)
+![recipe_app2](https://github.com/user-attachments/assets/ddb28210-1271-44e0-9e00-d9aa8356ed61)
+![recipe_app3](https://github.com/user-attachments/assets/612db12f-cfb9-45f1-9750-9891181b9047)
+![recipe_app4](https://github.com/user-attachments/assets/0ecbecf0-fc98-4a5d-a09a-0306867d1c51)
