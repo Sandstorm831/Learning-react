@@ -7,6 +7,7 @@ A respository for tracking my journey of learning react
 - [learning](#learning)
 - [Weather-App](#weather-app)
 - [Recipe-App](#recipe-app)
+- [Shopping-Cart](#shopping-cart)
 ---
 
 ### Tic-Tac-Toe
@@ -91,3 +92,21 @@ This project include various web components like :
 ![recipe_app2](https://github.com/user-attachments/assets/ddb28210-1271-44e0-9e00-d9aa8356ed61)
 ![recipe_app3](https://github.com/user-attachments/assets/612db12f-cfb9-45f1-9750-9891181b9047)
 ![recipe_app4](https://github.com/user-attachments/assets/0ecbecf0-fc98-4a5d-a09a-0306867d1c51)
+
+---
+### Shopping-Cart
+![Shopping-Cart](https://github.com/Sandstorm831/Learning-react/tree/main/shopping_cart) is a normal shopping cart app, not very much different to above Recipe-App but in two ways. First, it displays consumer items and not recipes and second for state management it uses redux instead of *Context*. Ironically I have not implemented the redux part only, but developed the UI and data fetching from API and other stuff. So this project currently under development and will be completed in a soon.
+
+Main *Home* Page
+![shopping2](https://github.com/user-attachments/assets/f2464893-8542-4df5-9ce9-b38503c03406)
+Loading interface
+![shopping1](https://github.com/user-attachments/assets/0bc49c79-3a50-4af9-bc48-17d86667bca2)
+Empty Cart Page
+![shopping3](https://github.com/user-attachments/assets/c2522f58-cdc6-4a47-973d-906f73944b33)
+
+
+
+
+
+
+
