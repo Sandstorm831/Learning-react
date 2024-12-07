@@ -7,7 +7,7 @@ export default function Header(){
             <Link to={'/'}>
                 <div className="ml-5">
                     <h1 className="text-red-900 font-bold text-xl sm:text-2xl md:text-3xl cursor-pointer tracking-wide">
-                        REACT REDUX SHOPPING CART
+                        REACT RECOIL SHOPPING CART
                     </h1>
                 </div>
             </Link>
