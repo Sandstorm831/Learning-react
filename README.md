@@ -18,8 +18,7 @@ A respository for tracking my journey of learning react
 
 A simple Tic-Tac-Toe game, designed by me. help taken from [React](https://react.dev). Apart from basic Tic-Tac-Toe game, in it you can go to your previous moves also and make changes to your moves. Enjoy.
 
-[View Live Demo](https://portfoliodeployements.vercel.app/tictactoe){: .btn}
-
+[![View Live Demo](/images/LiveDemo.png)](https://portfoliodeployements.vercel.app/tictactoe)
 ---
 ### TailWindCSS
 Explore basic functionalitites and Setup in TailWindCSS. 
@@ -28,7 +27,7 @@ Explore basic functionalitites and Setup in TailWindCSS.
 ### learning
 This project include various web components like :
 
-[View Live Demo](https://portfoliodeployements.vercel.app/learningreact){: .btn}
+[![View Live Demo](/images/LiveDemo.png)](https://portfoliodeployements.vercel.app/learningreact)
 
 
 - [Accordion](https://github.com/Sandstorm831/Learning-react/tree/main/learning/src/components/accordian) : Accordion components with a button to switch multiple selection and single selection optoins
@@ -102,7 +101,7 @@ Router-project
 ### Business-cards
 [Business-cards](https://github.com/Sandstorm831/Learning-react/tree/main/businessCards) is a CSS intensive project, made to learn and demonstrate styling as a whole using TailWindCSS. An animation is embedded in each of the business card. On hovering on any of card, the title of card moves up, and a description about the card holder and it's social media handles appears in smooth transition, and disappears smoothly on hovering out. Everything is written in TailWindCSS. Apart from the animation, I have also put effort in understanding the positioning of element on the screen and after the hard day's work, I think, overall it looks and feels good.
 
-[View Live Demo](https://portfoliodeployements.vercel.app/businesscardapp){: .btn}
+[![View Live Demo](/images/LiveDemo.png)](https://portfoliodeployements.vercel.app/businesscardapp)
 
 ![skullCards](/images/skullCard.png)
 
@@ -110,7 +109,7 @@ Router-project
 ### Weather-App
 [Weather-App](https://github.com/Sandstorm831/Learning-react/tree/main/weather-app) is a simple web app which gives you weather of any city in the world. I have made this app very resilient, as it can not overwhealm the server by several identical API requests. In it I have implemented a debouncer, which debounces any API request that is made withing 250 milliseconds of the previous request, I have implemented an API aborter which aborts any API request that is not resolved untill now and a new API request is made. I have rendered the weather icons with the help of [weather-react-icons](https://github.com/taichi-t/weather-react-icons) library, they render weather icons with the weather codes and [Open Weather Map](https://www.openweathermap.org) API gives weather icon codes to render icons. Made a global loading state which shows a little gesture of [ loading . | loading .. | loading ... ] with time, it was fun to make as upto this point my code have gotten vast enough that I myself was forgetting what components does themselves. Also incorporated focus shifter click outside functionality which hides non essential things when clicked outside that component, It also has to be made global thus, I learnt createContext() and useContext() deeply through this. I have used TailWindCSS in it for styling, and it was quite comfortable to handle once you know the basic stuff and I have tried to make the UI somewhat lively and playfull with a somewhat easy-to-read stuff. I have learnt a lot of stuff through this project.
 
-[View Live Demo](https://portfoliodeployements.vercel.app/weatherapp){: .btn}
+[![View Live Demo](/images/LiveDemo.png)](https://portfoliodeployements.vercel.app/weatherapp)
 
 ![weatherApp1](images/weatherApp1.png)
 ![weatherApp2](images/weatherApp2.png)
@@ -119,7 +118,7 @@ Router-project
 ### Recipe-App
 [Recipe-App](https://github.com/Sandstorm831/Learning-react/tree/main/recipie-app) is a web app (but not very simple) which gives recipes of various kind of dishes. You just have to input one of the ingredients of the recipe, and if the recipe shows up, you can click on *recipe details* button, through which you will land on the recipe details page. From there you can read the recipe and if you want to save the recipe, you can click the *Add to Favourites* button to add the recipe to favourites page. To view your saved favourites recipe, you just have to click on *Favourites* button in top-right corner to go to the favourites page. To create various pages, I have used react-router-dom library, and also used *useContext* extensively as most of my states are set to have global context. Designed all 4 pages with TailWindCSS. Used *useParams* hook to access id of the recipes in the global context and also taken *useNavigation* to automatically take user back and forth from different pages on certain functionalities.
 
-[View Live Demo](https://portfoliodeployements.vercel.app/recipeapp){: .btn}
+[![View Live Demo](/images/LiveDemo.png)](https://portfoliodeployements.vercel.app/recipeapp)
 
 ![recipe_app1](images/recipe_app1.png)
 ![recipe_app2](images/recipe_app2.png)
@@ -130,7 +129,7 @@ Router-project
 ### Shopping-Cart
 [Shopping-Cart](https://github.com/Sandstorm831/Learning-react/tree/main/shopping_cart) is a normal shopping cart app, not very much different to above Recipe-App but in two ways. First, it displays consumer items and not recipes and second for state management it uses recoil instead of *Context*. Every other thing have done previously also, so nothing to illustrate in that.
 
-[View Live Demo](https://portfoliodeployements.vercel.app/shoppingcart){: .btn}
+[![View Live Demo](/images/LiveDemo.png)](https://portfoliodeployements.vercel.app/shoppingcart)
 
 Main *Home* Page
 ![shopping1](images/shopping1.png)
